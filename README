@@ -1,0 +1,19 @@
+Caroline Roig-Irwin clr2176
+CS 4111 Assignment 1a
+
+NOTE: hw1.py was written in python 2.7
+
+HOW TO RUN:
+type 'python hw1_clr2176.py table "command" on the command line, where all csv files are in the current working directory. e.g. 'python hw1_clr2176.py find order CustomerID=VINET' 
+provided csv files may be entered as order/orders/orders.csv, customer/customers/customers.csv (any capitalization). find/insert operations may also be entered in upper or lower case. 
+
+
+ASSUMPTIONS:
+-If a given value for a column contains a comma, that value will be enclosed in escaped quotation marks. There are no quotation marks inside a value other than potential enclosing quotes.
+-The first row in every given CSV file contains column headers, which do not contain the characters = or ,
+-CSV files in use will not be moved or deleted while hw1.py is running
+-All values are treated as string literals, any values given as input are allowed in every column
+
+
+WORKS CITED
+https://docs.python.org/2/library/csv.html
