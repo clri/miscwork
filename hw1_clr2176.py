@@ -42,7 +42,8 @@ def checkColumnNames(tablename, columns):
     return True
 
 #find function. given a tablename and columns in a string of key=value pairs,
-#separated by commas, 
+#separated by commas, parse the column names and check format, then open the
+#given table and check all rows for matches to the values
 def find(tablename, cols):
     colvals = parseColumns(cols)
     cvs = dict()
@@ -72,7 +73,10 @@ def find(tablename, cols):
                     break
             if match: print row
    
-    
+
+#insert function. given data, checks for non-null primary key that does not exist in tablename
+#and correct number of columns listed in data as (value1,value2...valueN). Appends data 
+#to the end of the file if it is determined it can be inserted.     
 def insert(tablename, data):
     pcols = parseColumns(data.strip('()'),False) #parsed 
     if pcols[0] == '':
@@ -120,7 +124,7 @@ else:
     sys.exit(6) #fatal
     
     
-#print splits
+#find or insert
 if splits[0].upper() == 'FIND':
     find(splits[1],splits[2])
 else: 

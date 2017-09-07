@@ -12,6 +12,7 @@ ASSUMPTIONS:
 -If a given value for a column contains a comma, that value will be enclosed in escaped quotation marks. There are no quotation marks inside a value other than potential enclosing quotes.
 -The first row in every given CSV file contains column headers, which do not contain the characters = or ,
 -CSV files in use will not be moved or deleted while hw1.py is running
+-The first column of each given CSV is the primary key (as stored in metadata dictionary)
 -All values are treated as string literals, any values given as input are allowed in every column
 
 
