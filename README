@@ -44,7 +44,7 @@ Design Decisions:
 -There is no metadata given or assumed for what is nullable, field size, and data types, other than the Primary Key column of each file. Therefore any value of any length or data type may be inserted into any column (other than a null, empty string, or repeated value for a PK).
 
 
-Errors (none are fatal):
+Error Messages:
 -When the user specifies a table that is not 'orders' or 'customers' in all-lowercase letters
 -When the user specifies a command other than FIND/INSERT/EXIT
 -Too few arguments
