@@ -1,0 +1,17 @@
+FIND customers CustomerID=ANTON
+FIND customers CustorID=ANTON
+INSERT customers ("DFF9", "Don Company", "D. Ferguson", "Professor",  "W 166th St.", "New York", "NY", "10027", "USA", "212-555-1212", null)
+INSERT customers ("DFFF9",44, "Don Company", "D. Ferguson", "Professor",  "W 166th St.", "New York", "NY", "10027", "USA", "212-555-1212", null)
+INSERT customers ("DFFF9", "Don Company", "D. Ferguson", "Professor",  "W 166th St.", "New York", "NY", "10027", "USA", "212-555-1212", null)
+INSERT customers (DFFF8, Don Company, D. Ferguson, Professor,  W 166th St., New York, NY, 10027, USA, 212-555-1212, null)
+INSERT customers (DFFF9, Don Company, D. Ferguson, Professor,  W 166th St., New York, NY, 10027, USA, 212-555-1212, null)
+INSERT customers ("DFFF9", Don Company, D. Ferguson, Professor,  W 166th St., New York, NY, 10027, USA, 212-555-1212, null)
+INSERT customers ("", "Don Company", "D. Ferguson", "Professor",  "W 166th St.", "New York", "NY", "10027", "USA", "212-555-1212", null)
+	FIND orders ShipVia=3,CustomerID="VINET"
+	FIND orders ShipVia=3,ShipVia=3
+FIND customers CustomerID=ANTON
+FIND customers CustomerID=DFF9
+FIND customers CustomerID="ANTON"
+INSERT customers "DFFF9", "Don Company", "D. Ferguson", "Professor",  "W 166th St.", "New York", "NY", "10027", "USA", "212-555-1212", null
+FIND customers CustomerID=DFFF9
+EXIT

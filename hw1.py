@@ -5,6 +5,7 @@ import csv
 from os import system, path
 
 
+
 def parseColumns(columns,kv=True):
     spl = columns.split(',')
     ans = [spl[0]]
