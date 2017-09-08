@@ -23,6 +23,7 @@ ASSUMPTIONS:
 -Input values for FIND and INSERT are comma-delimited (the comma may or may not have trailing whitespace)
 -Data values will never contain the double-quote (") character. Data values may be enclosed within a set of two, however.
 -Primary key columns will not change for either file.
+-Lines are terminated with a newline ('\n') character only
 
 
 Design Decisions:
