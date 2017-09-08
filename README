@@ -28,15 +28,19 @@ ASSUMPTIONS:
 Design Decisions:
 -Values enclosed in double quotes are treated as equivalent to the same string without the enclosing double quotes. The python CSV library loads values that are enclosed in double quotes as the value without them (i.e. "myValue" is loaded as myValue), and all of the nonnumeric initial values in the given CSV are enclosed within quotations. If the user inputs values in quotation marks, they will be written into the CSV in quotation marks. If the user inputs values that are not in quotation marks, they will be written into the CSV without quotation marks. However, we are treating "myValue" as equivalent to myValue, so for an INSERT, if myValue OR "myValue" is stored as a primary key, a set of values with the primary key of myValue OR "myValue" will not succeed due to conflict.
 
--For INSERT operations, file writes are committed immediately. In the long run, overhead may be expensive from opening and closing the same file repeatedly, but the files for this project are small and assumed to be relatively inexpensive to load into memory. However, this assures that all insert operations that report they are successfully completed truly have written output to the file, rather than waiting for the next find operation or termination of the program.
+-For INSERT operations, file writes are committed immediately. In the long run, overhead may be expensive from opening and closing the same file repeatedly, but the files for this project are small and assumed to be relatively inexpensive to load into memory. However, this assures that all insert operations that report they are successfully completed truly have written output to the file, rather than waiting for the next find operation or termination of the program. 
 
 -for FIND operations, the file is opened and closed every time as well. FIND does not have to be committed, but rather than keep track of a file descriptor and return the position to zero each time, and in order to be consistent with INSERT, I will continue this practice.
+
+-In congruence with the above two statements, both files are not opened at the start because both may not be needed. They are only opened when they are needed, and closed until they are needed again.
 
 -metadata for the literal tables is stored via a python dictionary. The keys are the table names ('orders' and 'customers', stored as strings) and the values are a two-item list of [filename,PK]. They were stored together in order to make the functions table-independent. I could have chosen to include all of the column names in the dictionary for each table, but checking input against the file itself is a relatively easy operation and at this scale opening the file is not particularly costly.
 
 -output of a FIND operation is a printed representation of a python dictionary. There is no guarantee as to the order in which fields are stored, but all will be printed to the screen as ordered pairs. I feel this is adequate output for this assignment, as it includes all requisite information.
 
 -A command line interface was chosen as it makes parsing commands with quotation marks and values with commas much easier. 
+
+-There is no metadata given or assumed for what is nullable, field size, and data types, other than the Primary Key column of each file. Therefore any value of any length or data type may be inserted into any column (other than a null, empty string, or repeated value for a PK).
 
 
 Errors (none are fatal):
@@ -52,3 +56,5 @@ Errors (none are fatal):
 
 WORKS CITED
 https://docs.python.org/2/library/csv.html (for use of the CSV library)
+https://stackoverflow.com/questions/5574702/how-to-print-to-stderr-in-python (printing to stderr)
+

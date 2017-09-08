@@ -2,7 +2,6 @@
 
 import sys
 import csv
-from os import system, path
 
 metas = {'orders': ['orders.csv','OrderID'], 'customers': ['customers.csv','CustomerID']}  #contains filename->csv/AK mapping
 
@@ -83,8 +82,8 @@ def insert(tablename, data):
 (column1,...columnN)\' '
         return
     pcols = parseColumns(data.strip('()'),False) #parsed 
-    if pcols[0].strip('\" \t\n') == '':
-        print >> sys.stderr, 'ERROR: null primary key, could not insert.'
+    if pcols[0].strip('\" \t\n').upper() in ('','NULL') :
+        print >> sys.stderr, 'ERROR: null or empty primary key, could not insert.'
         return
         
     with open(metas[tablename][0]) as table:
