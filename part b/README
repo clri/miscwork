@@ -1,7 +1,8 @@
 Caroline Roig-Irwin clr2176
 CS 4111 Assignment 1b
 
-Queries (screenshot name - query - why i chose it)
+
+Queries (screenshot name - query - design choices)
 
 1. select_1: 
 select * from northwind.Customers; 
