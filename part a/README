@@ -4,7 +4,7 @@ CS 4111 Assignment 1a
 NOTE: hw1.py was written in python 2.7
 
 HOW TO RUN:
-1. Enter 'python hw1_clr2176.py' on the command line (or python2 if your default python is 3.x). Please run the program in the same directory as where orders.csv and customers.csv are located, as both are given the relative address of 'orders.csv' and 'customers.csv'. 
+1. Enter 'python hw1.py' on the command line (or python2 if your default python is 3.x). Please run the program in the same directory as where orders.csv and customers.csv are located, as both are given the relative address of 'orders.csv' and 'customers.csv'. 
 
 2. A prompt 'HW1DB>' will show up on the command line. Please enter a prompt beginning with 'find/insert (case-insensitive) customers/orders <data>', for example:
 	FIND customers CustomerID=ANTON
@@ -13,7 +13,7 @@ HOW TO RUN:
 	
 Please note that data fields may be enclosed in double-quotes, or they may not. Please do not enclose data fields in single quotes (single quotes will be taken literally, and such a value of 'myValue' is not treated as equivalent to a value of "myValue" or myValue, though the latter two are treated as equivalent). If there is a comma in a data field, please enclose that field in double quotes so that the comma is not counted as a delimiter. 
 
-3. When you are done running find/insert operations, please type EXIT to exit the HW1DB prompt.
+3. When you are done running find/insert operations, please type EXIT (case-insensitive) to exit the HW1DB prompt.
 
 
 ASSUMPTIONS:
@@ -22,6 +22,7 @@ ASSUMPTIONS:
 -the only files that will need to be read/written are orders.csv and customers.csv from northwind
 -Input values for FIND and INSERT are comma-delimited (the comma may or may not have trailing whitespace)
 -Data values will never contain the double-quote (") character. Data values may be enclosed within a set of two, however.
+-Data values will never be the string "null" or "NULL" (since this program evaluates strings in and out of quotes to be the same)
 -Primary key columns will not change for either file.
 -Lines are terminated with a newline ('\n') character only
 

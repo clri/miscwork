@@ -1,0 +1,73 @@
+Caroline Roig-Irwin clr2176
+CS 4111 Assignment 1b
+
+Queries (screenshot name - query - why i chose it)
+
+1. select_1: 
+select * from northwind.Customers; 
+A sample query given in the class slides
+
+2. select_2: 
+select * from northwind.Customers where Country = 'Germany';
+A sample query given in the class slides
+
+3. select_3: 
+select * from northwind.Orders where EmployeeID=5 and ShipVia=3; 
+A sample query given in the class slides
+
+4. insert_row_and_duplicate:
+INSERT INTO Northwind.Customers values ('DFF9', 'Don Company', 'D. Ferguson',
+'Professor', 'W 166th St.', 'New York', 'NY', '10027', 'USA', '212-555-1212',
+ null);
+INSERT INTO Northwind.Customers values ('DFF9', 'Don Company', 'D. Ferguson',
+'Professor', 'W 166th St.', 'New York', 'NY', '10027', 'USA', '212-555-1212',
+ null);
+Inserted a row successfully, then tried to insert the same row twice. It did
+not succeed because of duplicate primary keys.
+
+5. insert_nullCustomerID:
+INSERT INTO Northwind.Customers values (NULL, 'Don Company', 'D. Ferguson',
+'Professor', 'W 166th St.', 'New York', 'NY', '10027', 'USA', '212-555-1212',
+ null);
+Attempted to insert a null customer ID. This did not succeed due to the null
+primary key.
+
+6. insert_nullContactName:
+INSERT INTO Northwind.Customers values ('ABNQ8', 'Don Company', NULL,
+'Professor', 'W 166th St.', 'New York', 'NY', '10027', 'USA', '212-555-1212',
+ null);
+Attempted insert with a non-null, non-duplicate customer ID associated with a
+null attribute. Since ContactName can be null, it succeeded.
+
+7.insert_columncount:
+INSERT INTO Northwind.Customers values ('ABNQ8', 33, 'Don Company', NULL,
+'Professor', 'W 166th St.', 'New York', 'NY', '10027', 'USA', '212-555-1212',
+ null);
+Attempted insert with too many columns and a duplicate primary key. It failed
+due to column count before the primary key was even checked.
+
+8. insert_longdata:
+INSERT INTO Northwind.Customers values ('ABNQ8ASKDJFWEIRIOWEIR', 'Don Company', 
+NULL, 'Professor', 'W 166th St.', 'New York', 'NY', '10027', 'USA', 
+'212-555-1212', null);
+Attempted to insert a long piece of data into the primary key column. Since it
+was too long the attempt failed.
+
+9.insert_newkey:
+INSERT INTO Northwind.Customers values ('DFFF9', 'Don Company', NULL,
+'Professor', 'W 166th St.', 'New York', 'NY', '10027', 'USA', '212-555-1212',
+ null);
+Inserted a completely new primary key with all valid values.
+
+10. select_groupby: 
+select ShipVia, count(*) from northwind.Orders group by ShipVia;
+Grouped rows by ShipVia and calculated the count to display alongside the
+corresponding value.
+
+11. select_orderby:
+select CustomerID, ShipVia, count(*) from northwind.Orders group by 
+CustomerID, ShipVia order by CustomerID;
+Grouped rows by (CustomerID, ShipVia) combination as well as the count for each 
+combination and ordered by CustomerID such that the output displayed 
+alphabetically.
+
